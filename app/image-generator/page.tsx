@@ -51,32 +51,32 @@ export default function ImageGeneratorPage() {
               <h4 className="font-medium text-gray-900 mb-2">Be Specific</h4>
               <p className="text-gray-600 text-sm">
                 Include details about style, lighting, composition, and mood. 
-                Instead of "a cat", try "a majestic orange tabby cat sitting in a sunlit window, 
-                photorealistic style with warm golden lighting".
+                Instead of &ldquo;a cat&rdquo;, try &ldquo;a majestic orange tabby cat sitting in a sunlit window, 
+                photorealistic style with warm golden lighting&rdquo;.
               </p>
             </div>
             <div>
               <h4 className="font-medium text-gray-900 mb-2">Use Descriptive Language</h4>
               <p className="text-gray-600 text-sm">
                 Add adjectives and descriptive words. Mention colors, textures, 
-                time of day, weather, and artistic styles like "oil painting", 
-                "digital art", or "photography".
+                time of day, weather, and artistic styles like &ldquo;oil painting&rdquo;, 
+                &ldquo;digital art&rdquo;, or &ldquo;photography&rdquo;.
               </p>
             </div>
             <div>
               <h4 className="font-medium text-gray-900 mb-2">Consider Composition</h4>
               <p className="text-gray-600 text-sm">
                 Think about camera angles, framing, and perspective. 
-                Use terms like "close-up", "wide shot", "bird's eye view", 
-                or "portrait orientation".
+                Use terms like &ldquo;close-up&rdquo;, &ldquo;wide shot&rdquo;, &ldquo;bird&apos;s eye view&rdquo;, 
+                or &ldquo;portrait orientation&rdquo;.
               </p>
             </div>
             <div>
               <h4 className="font-medium text-gray-900 mb-2">Style References</h4>
               <p className="text-gray-600 text-sm">
                 Reference famous artists, art movements, or specific styles. 
-                Try "in the style of Van Gogh", "cyberpunk aesthetic", 
-                or "minimalist design".
+                Try &ldquo;in the style of Van Gogh&rdquo;, &ldquo;cyberpunk aesthetic&rdquo;, 
+                or &ldquo;minimalist design&rdquo;.
               </p>
             </div>
           </div>

@@ -10,9 +10,7 @@ import {
   where, 
   orderBy, 
   limit,
-  serverTimestamp,
-  DocumentData,
-  QueryDocumentSnapshot
+  serverTimestamp
 } from 'firebase/firestore';
 import { 
   ref, 
@@ -22,6 +20,17 @@ import {
   listAll
 } from 'firebase/storage';
 import { db, storage } from './firebase';
+
+// Type definitions
+interface FirestoreData {
+  [key: string]: unknown;
+}
+
+interface QueryFilter {
+  field: string;
+  operator: '==' | '!=' | '<' | '<=' | '>' | '>=' | 'array-contains' | 'array-contains-any' | 'in' | 'not-in';
+  value: unknown;
+}
 
 // Firestore Database Operations
 export class FirestoreService {
@@ -60,7 +69,7 @@ export class FirestoreService {
   }
 
   // Add a new document
-  static async add(collectionName: string, data: any) {
+  static async add(collectionName: string, data: FirestoreData) {
     try {
       const docRef = await addDoc(collection(db, collectionName), {
         ...data,
@@ -75,7 +84,7 @@ export class FirestoreService {
   }
 
   // Update a document
-  static async update(collectionName: string, docId: string, data: any) {
+  static async update(collectionName: string, docId: string, data: FirestoreData) {
     try {
       const docRef = doc(db, collectionName, docId);
       await updateDoc(docRef, {
@@ -100,9 +109,9 @@ export class FirestoreService {
   }
 
   // Query documents with filters
-  static async query(collectionName: string, filters: any[] = [], orderByField?: string, limitCount?: number) {
+  static async query(collectionName: string, filters: QueryFilter[] = [], orderByField?: string, limitCount?: number) {
     try {
-      let q = collection(db, collectionName);
+      let q: any = collection(db, collectionName);
       
       // Apply filters
       filters.forEach(filter => {
@@ -184,7 +193,7 @@ export class StorageService {
 // User-specific operations
 export class UserService {
   // Save user profile
-  static async saveUserProfile(userId: string, profileData: any) {
+  static async saveUserProfile(userId: string, profileData: FirestoreData) {
     try {
       await FirestoreService.update('users', userId, profileData);
     } catch (error) {
@@ -204,7 +213,7 @@ export class UserService {
   }
 
   // Save user activity
-  static async saveUserActivity(userId: string, activityData: any) {
+  static async saveUserActivity(userId: string, activityData: FirestoreData) {
     try {
       const activityId = await FirestoreService.add('user_activities', {
         userId,
@@ -236,7 +245,7 @@ export class UserService {
 // Quote-specific operations
 export class QuoteService {
   // Save a favorite quote
-  static async saveFavoriteQuote(userId: string, quoteData: any) {
+  static async saveFavoriteQuote(userId: string, quoteData: FirestoreData) {
     try {
       const quoteId = await FirestoreService.add('favorite_quotes', {
         userId,
@@ -279,7 +288,7 @@ export class QuoteService {
 // Image-specific operations
 export class ImageService {
   // Save a generated image
-  static async saveGeneratedImage(userId: string, imageData: any) {
+  static async saveGeneratedImage(userId: string, imageData: FirestoreData) {
     try {
       const imageId = await FirestoreService.add('generated_images', {
         userId,

@@ -62,7 +62,7 @@ export default function Home() {
                        className="space-y-4"
                      >
                        <p className="text-lg text-green-600 mb-4">
-                         🎉 Welcome back! You're successfully signed in.
+                         🎉 Welcome back! You&apos;re successfully signed in.
                        </p>
                        <div className="flex flex-col sm:flex-row gap-4">
                          <Link href="/dashboard">

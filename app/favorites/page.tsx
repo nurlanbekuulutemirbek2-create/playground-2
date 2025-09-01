@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useUser } from "@clerk/nextjs";
 import { QuoteService } from "../../lib/firebase-utils";
@@ -26,20 +26,20 @@ export default function FavoritesPage() {
     }
   }, [user]);
 
-  const loadFavorites = async () => {
+  const loadFavorites = useCallback(async () => {
     if (!user) return;
     
     setLoading(true);
     try {
       const userFavorites = await QuoteService.getFavoriteQuotes(user.id);
-      setFavorites(userFavorites);
+      setFavorites(userFavorites as FavoriteQuote[]);
     } catch (error) {
       console.error('Error loading favorites:', error);
       setError('Failed to load favorite quotes');
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
   const handleDeleteFavorite = async (quoteId: string) => {
     try {
@@ -153,7 +153,7 @@ export default function FavoritesPage() {
                       transition={{ delay: index * 0.1 + 0.2 }}
                       className="text-lg md:text-xl font-medium text-gray-900 mb-3 italic leading-relaxed"
                     >
-                      "{quote.text}"
+                      &ldquo;{quote.text}&rdquo;
                     </motion.p>
                     <motion.p
                       initial={{ opacity: 0 }}

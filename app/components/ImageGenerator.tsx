@@ -390,7 +390,7 @@ export default function ImageGenerator() {
                           <div className="mt-3 space-y-2">
                 <button
                   onClick={() => {
-                    const testImg = new Image();
+                    const testImg = new window.Image();
                     testImg.onload = () => console.log('Test image loaded successfully');
                     testImg.onerror = () => console.error('Test image failed to load');
                     testImg.src = generatedImage.url;
@@ -491,7 +491,8 @@ export default function ImageGenerator() {
                     }}
                                     onLoad={(e) => {
                   console.log('Generated image loaded successfully');
-                  console.log('Image dimensions:', e.target.naturalWidth, 'x', e.target.naturalHeight);
+                  const target = e.target as HTMLImageElement;
+                  console.log('Image dimensions:', target.naturalWidth, 'x', target.naturalHeight);
                   setImageLoading(false);
                   setImageError(null);
                   // Show success message briefly

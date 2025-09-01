@@ -4,8 +4,6 @@ import { useUser } from "@clerk/nextjs";
 import { motion } from "framer-motion";
 import { 
   User, 
-  Mail, 
-  Calendar, 
   Settings, 
   Bell, 
   BarChart3, 

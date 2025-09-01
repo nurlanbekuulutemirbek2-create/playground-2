@@ -127,7 +127,7 @@ export default function MotivationalQuote() {
               transition={{ delay: 0.2 }}
               className="text-xl md:text-2xl font-medium leading-relaxed mb-3 italic"
             >
-              "{quote?.text}"
+              &ldquo;{quote?.text}&rdquo;
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}

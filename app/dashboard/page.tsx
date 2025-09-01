@@ -5,10 +5,8 @@ import { useUser } from "@clerk/nextjs";
 import { 
   User, 
   Settings, 
-  Bell, 
   BarChart3, 
   TrendingUp,
-  Activity,
   Target,
   Award,
   Image
@@ -47,7 +45,7 @@ export default function Dashboard() {
             Welcome back, {user?.firstName || user?.emailAddresses[0]?.emailAddress}!
           </h1>
           <p className="text-xl text-gray-600">
-            Here's what's happening with your account today.
+            Here&apos;s what&apos;s happening with your account today.
           </p>
         </motion.div>
 
