@@ -7,13 +7,13 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAWuFPD_qwvOqYvLxEVcyFAXEnLh-pzqqA",
-  authDomain: "playgroundai-a1e1b.firebaseapp.com",
-  projectId: "playgroundai-a1e1b",
-  storageBucket: "playgroundai-a1e1b.firebasestorage.app",
-  messagingSenderId: "695078257328",
-  appId: "1:695078257328:web:6a51d698a289596dbdf175",
-  measurementId: "G-JX17SN6XYC"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
